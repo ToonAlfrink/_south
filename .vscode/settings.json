@@ -1,0 +1,31 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true,
+        "django-env": true,
+        "**/__pycache__": true,
+        "static_backup": true,
+        ".venv": true,
+        "_data": true,
+        ".tmp": true,
+        "memcached": true,
+        "mongo_db": true,
+        "scripts/node_modules": true,
+        "static": true,
+        ".env.7z": true,
+        "mongodb-ca-certificate.crt": true,
+        ".vscode": true
+    },
+    "explorerExclude.backup": null,
+    "python.analysis.extraPaths": [
+        "goat_shared"
+    ]
+}

@@ -1,0 +1,1109 @@
+{% load frontend_custom_filters %}
+{% load frontend_custom_tags %}
+
+<!DOCTYPE html>
+
+<html lang="{{lang_iso_code|goat_lang_part}}">
+
+<!-- ===============================================-->
+<!-- header starts here -->
+<!-- ===============================================-->
+
+<head>
+     {% if lang_iso_code %}
+     <base href="/{{lang_iso_code}}/">
+     {% endif %}
+    <meta charset="utf-8" />
+    {% if content_id %}
+        <title>{{heroBlockTitle}} :: {{companyName}}</title>
+        <meta name="description" content="{{heroBlockDescription}}" />
+        <meta name="keywords" content="{{keywords|join:', '}}">
+    {% else %}
+        <title>{{pageTitle}} :: {{companyName}}</title>
+        <meta name="description" content="{{pageDescription}}" />
+    {% endif %}
+    <meta name="language" content={{lang_iso_code|goat_lang_part}}>
+    <meta name="revised" content="{{revised_date}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <link href="https://goatcdn.sfo3.digitaloceanspaces.com/static/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="https://goatcdn.sfo3.digitaloceanspaces.com/static/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="https://goatcdn.sfo3.digitaloceanspaces.com/static/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="https://goatcdn.sfo3.digitaloceanspaces.com/static/assets/css/goat.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="{{pageIconHeader}}" />
+    {% if not skip_lang_check %}
+      <script defer src="https://goatcdn.sfo3.digitaloceanspaces.com/static/assets/js/set-country.min.js"></script>
+    {% endif %}
+</head>
+
+<!-- ===============================================-->
+<!-- header ends here -->
+<!-- ===============================================-->
+
+<body id="kt_body" class="print-content-only header-fixed header-mobile-fixed subheader-enabled page-loading">
+
+    <div class="d-flex flex-column flex-root">
+        <div class="d-flex flex-row flex-column-fluid page">
+            <div class="d-flex flex-column flex-row-fluid bg-light-warning" id="kt_wrapper">
+
+                <div class="content d-flex flex-column" id="kt_content">
+
+                    <!-- ===============================================-->
+                    <!-- hero starts here -->
+                    <!-- ===============================================-->
+
+                    <div class="d-flex flex-column-fluid bg-light-warning pt-15 pb-40">
+                        <div class="container">
+
+                            <div class="mb-6 text-center">
+                                <a href="/"> <img src="{{pageIconHeader}}" height="30"
+                                        alt="image" /> </a>
+
+                                <div class="container d-flex flex-column flex-md-row justify-content-md-center p-4">
+                                    <ul
+                                        class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+                                        <li class="breadcrumb-item font-weight-bolder text-muted">
+                                            <a href="#company" class="text-muted">Company</a>
+                                        </li>
+                                        <li class="breadcrumb-item font-weight-bolder text-muted">
+                                            <a href="#products" class="text-muted">Products</a>
+                                        </li>
+                                        <li class="breadcrumb-item font-weight-bolder text-muted">
+                                            <a href="#customers" class="text-muted">Customers</a>
+                                        </li>
+                                        <li class="breadcrumb-item font-weight-bolder text-muted">
+                                            <a href="#solutions" class="text-muted">Solutions</a>
+                                        </li>
+                                        <li class="breadcrumb-item font-weight-bolder text-muted">
+                                            <a href="#packages" class="text-muted">Packages</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                            <!-- hero_block starts here -->
+
+                            <blockquote class="blockquote text-center mb-10">
+                                <h2 class="mb-0 display-1 text-dark font-weight-boldest">{{heroBlockTitle}}</h2>
+                                <div class="my-6 font-weight-bold font-size-h4 text-dark-50">{{heroBlockDescription}}</div>
+                            </blockquote>
+
+                            <!-- hero_block ends here -->
+
+                            <!-- lead_form starts here -->
+
+                            <div class="form-inline justify-content-center">
+                                    <a {% goat_href productButtonRedirect %} class="btn btn-primary font-weight-boldest btn-lg pull-left btn-shadow mr-2 px-12 py-5">{{productButtonCta}}</a>
+                                <a {% goat_href companyWebsite %} target="_blank" class="btn btn-bg-white btn-secondary font-weight-boldest btn-lg pull-right btn-shadow px-12 py-5">{{companyButtonCta}}</a>
+                                
+                                    {% comment %} <div class="mr-2"><input type="email"
+                                        class="form-control bg-white font-weight-bolder h-auto pl-6 py-6 pr-40 rounded-lg font-size-h6"
+                                        placeholder="Email Address">
+                                
+                                 </div><button type="submit"
+                                    class="btn btn-primary font-weight-bolder font-size-h6 py-6 px-20">Continue</button> {% endcomment %}
+                            </div>
+
+                            <div class="container d-flex flex-column flex-md-row justify-content-md-center pt-4">
+                                <ul
+                                    class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+                                    <li class="breadcrumb-item font-weight-bolder text-muted">
+                                        <div class="text-muted">{% goat_values_title %}</div>
+                                    </li>
+                                    <li class="breadcrumb-item font-weight-bolder text-muted">
+                                        <div class="text-muted">{% goat_values_title %}</div>
+                                    </li>
+                                    <li class="breadcrumb-item font-weight-bolder text-muted">
+                                        <div class="text-muted">{% goat_values_title %}</div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- lead_form ends here -->
+
+                        </div>
+                    </div>
+
+                    <!-- ===============================================-->
+                    <!-- hero ends here -->
+                    <!-- ===============================================-->
+
+                    <!-- ===============================================-->
+                    <!-- value starts here -->
+                    <!-- ===============================================-->
+
+                    <a id="values">
+                        <div class="d-flex flex-column-fluid bg-white p-40">
+                    </a>
+
+                    <div class="container">
+
+                        <div class="text-center">
+                            <span class="label label-light-success label-inline font-weight-bolder mb-8">VALUES</span>
+                        </div>
+
+                        <!-- value_block starts here -->
+
+                        <blockquote class="blockquote text-center mb-10">
+                            <h2 class="mb-0 display-2 text-dark font-weight-boldest">{{valueBlockTitle}}</h2>
+                            <div class="my-6 font-weight-bold font-size-h4 text-dark-50">{{valueBlockDescription}}</div>
+
+                            <div class="container d-flex flex-column flex-md-row justify-content-md-center pt-4">
+                                <ul
+                                    class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+                                    <li class="breadcrumb-item font-weight-bolder text-muted">
+                                        <div class="text-muted">{% goat_values_title %}</div>
+                                    </li>
+                                    <li class="breadcrumb-item font-weight-bolder text-muted">
+                                        <div class="text-muted">{% goat_values_title %}</div>
+                                    </li>
+                                    <li class="breadcrumb-item font-weight-bolder text-muted">
+                                        <div class="text-muted">{% goat_values_title %}</div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </blockquote>
+
+                        <!-- value_block ends here -->
+
+                        <div class="flex-row-fluid ml-lg-8 mt-20">
+                        <div class="row">
+                          {% for item in values_block_items  %}
+                            <div class="col-xl-3 text-center">
+                                    <div class="card card-custom p-10 gutter-b">
+                                        <div class="card-body text-center">
+                                            <div class="symbol symbol-circle symbol-lg-50 mb-3">
+                                                <img src="{{'a-values'|goat_img_url}}" alt="image" />
+                                            </div>
+                                            <div class="text-primary font-weight-bolder font-size-lg">
+                                                {{item}}
+                                            </div>
+                                            <div class="">
+                                                <span
+                                                    class="label label-light-{% goat_random_color %} label-inline font-weight-bolder mt-2">{% chip_text 'topic01' %}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% if forloop.counter|divisibleby:4 and forloop.counter < 12 %}
+                                  </div>
+                                  <div class="row">
+                                {% endif %}
+                          {% endfor %}
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ===============================================-->
+                <!-- value ends here -->
+                <!-- ===============================================-->
+
+                <!-- ===============================================-->
+                <!-- topic_01 starts here -->
+                <!-- ===============================================-->
+
+                <div class="d-flex flex-column-fluid bg-light p-40">
+                    <div class="container">
+
+                        <div class="text-center">
+                            <span class="label label-warning label-inline font-weight-bolder mb-8">{{topic01Name}}</span>
+                        </div>
+
+                        <!-- topic_01_block starts here -->
+
+                        <blockquote class="blockquote text-center mb-10">
+                            <h2 class="mb-0 display-2 text-dark font-weight-boldest">{{topic01BlockTitle}}</h2>
+                            <div class="my-6 font-weight-bold font-size-h4 text-dark-50">{{topic01BlockDescription}}</div>
+                        </blockquote>
+
+                        <!-- topic_01_block ends here -->
+
+                        <div class="flex-row-fluid ml-lg-8">
+
+                            <div class="row mb-10">
+
+                            {% for item in data_list|slice:4 %}
+                              <a {% goat_href item.topic01Slug %} class="col-xl-6 text-center">
+                                    <div class="bgi-no-repeat bgi-size-cover rounded min-h-300px mb-6"
+                                        style="background-image: url({{'a-topics'|goat_img_url}})"></div>
+                                    <span class="text-dark font-weight-bolder font-size-h4">{{item.topic01Title}}</span>
+                                    <div class="text-muted font-weight-bold my-3">{{item.topic01Description}}</div>
+                                    <span class="label label-{% goat_random_color %} label-inline font-weight-bolder my-2">{{item.topic01Chip}}</span>
+                                </a>
+
+                                {% if forloop.counter == 2 %}
+                                  </div> 
+                                  <div class="row">
+                                {% endif %}
+                            {% endfor %}
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ===============================================-->
+                <!-- topic_01 ends here -->
+                <!-- ===============================================-->
+
+                <!-- ===============================================-->
+                <!-- topic_02 starts here -->
+                <!-- ===============================================-->
+
+                <div class="d-flex flex-column-fluid bg-light-primary p-40">
+                    <div class="container">
+
+                        <div class="text-center">
+                            <span class="label label-success label-inline font-weight-bolder mb-8">{{topic02Name}}</span>
+                        </div>
+
+                        <!-- topic_02_block starts here -->
+
+                        <blockquote class="blockquote text-center mb-10">
+                            <h2 class="mb-0 display-2 text-dark font-weight-boldest">{{topic02BlockTitle}}</h2>
+                            <div class="my-6 font-weight-bold font-size-h4 text-dark-50">{{topic02BlockDescription}}</div>
+                        </blockquote>
+
+                        <!-- topic_02_block ends here -->
+
+                        <div class="flex-row-fluid ml-lg-8">
+                            <div class="row mb-10">
+                            {% for item in data_list|slice:6 %}
+                                <a {% goat_href item.topic02Slug %} class="col-xl-4 text-center">
+                                    <div class="bgi-no-repeat bgi-size-cover rounded min-h-200px mb-6"
+                                        style="background-image: url({{'a-topics'|goat_img_url}})"></div>
+                                    <span class="text-dark font-weight-bolder font-size-h4">{{item.topic02Title}}</span>
+                                    <div class="text-muted font-weight-bold my-3">{{item.topic02Description}}</div>
+                                    <span class="label label-{% goat_random_color %} label-inline font-weight-bolder my-2">
+                                    {{item.topic02Chip}}
+                                    </span>
+                                </a>
+                                {% if forloop.counter == 3 %}
+                                </div> <div class="row">
+                                {% endif %}
+                            {% endfor %}
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ===============================================-->
+                <!-- topic_02 ends here -->
+                <!-- ===============================================-->
+
+                <!-- ===============================================-->
+                <!-- topic_03 starts here -->
+                <!-- ===============================================-->
+
+                <div class="d-flex flex-column-fluid bg-white p-40">
+                    <div class="container">
+
+                        <div class="text-center">
+                            <span class="label label-primary label-inline font-weight-bolder mb-8">{{topic03Name}}</span>
+                        </div>
+
+                        <!-- topic_03_block starts here -->
+
+                        <blockquote class="blockquote text-center mb-10">
+
+                            <h2 class="mb-0 display-2 text-dark font-weight-boldest">{{topic03BlockTitle}}</h2>
+                            <div class="my-6 font-weight-bold font-size-h4 text-dark-50">{{topic03BlockDescription}}</div>
+
+                        </blockquote>
+
+                        <!-- topic_03_block ends here -->
+
+                        <div class="flex-row-fluid ml-lg-8">
+
+                            <div class="row mb-10">
+                            {% for item in data_list|slice:6 %}
+                                <a {% goat_href item.topic03Slug %} class="col-xl-4 text-center">
+                                    <div class="bgi-no-repeat bgi-size-cover rounded min-h-200px mb-6"
+                                        style="background-image: url({{'a-topics'|goat_img_url}})"></div>
+                                    <span class="text-dark font-weight-bolder font-size-h4">{{item.topic03Title}}</span>
+                                    <div class="text-muted font-weight-bold my-3">{{item.topic03Description}}</div>
+                                    <span class="label label-{% goat_random_color %} label-inline font-weight-bolder my-2">{{item.topic01Chip}}
+                                    </span>
+                                </a>
+                                {% if forloop.counter == 3 %}
+                                </div> <div class="row">
+                                {% endif %}
+                            {% endfor %}
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ===============================================-->
+                <!-- topic_03 ends here -->
+                <!-- ===============================================-->
+
+                <!-- ===============================================-->
+                <!-- package starts here -->
+                <!-- ===============================================-->
+
+                <a id="packages">
+                    <div class="d-flex flex-column-fluid bg-warning p-40">
+                </a>
+
+                <div class="container">
+
+                    <div class="text-center">
+                        <span class="label label-white label-inline font-weight-bolder mb-8">PACKAGES</span>
+                    </div>
+
+                    <!-- package_block starts here -->
+
+                    <blockquote class="blockquote text-center mb-10">
+                        <h2 class="mb-0 display-2 text-dark font-weight-boldest">{{packageBlockTitle}}</h2>
+                        <div class="my-6 font-weight-bold font-size-h4 text-dark-75">{{packageBlockDescription}}</div>
+
+                        <a {% goat_href productButtonRedirect %} class="btn btn-primary font-weight-boldest btn-lg pull-left btn-shadow mr-2 px-12 py-5">{{productButtonCta}}</a>
+                        <a {% goat_href companyWebsite %} target="_blank" class="btn btn-bg-white btn-secondary font-weight-boldest btn-lg pull-right btn-shadow px-12 py-5">{{companyButtonCta}}</a>
+
+                        <div class="container d-flex flex-column flex-md-row justify-content-md-center pt-4">
+                            <ul
+                                class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+                                <li class="breadcrumb-item font-weight-bolder text-muted">
+                                    <div class="text-dark-50">{% goat_values_title %}</div>
+                                </li>
+                                <li class="breadcrumb-item font-weight-bolder text-muted">
+                                    <div class="text-dark-50">{% goat_values_title %}</div>
+                                </li>
+                                <li class="breadcrumb-item font-weight-bolder text-muted">
+                                    <div class="text-dark-50">{% goat_values_title %}</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </blockquote>
+
+                    <!-- package_block ends here -->
+
+                </div>
+            </div>
+
+            <!-- ===============================================-->
+            <!-- package ends here -->
+            <!-- ===============================================-->
+
+            <!-- ===============================================-->
+            <!-- topic_04 starts here -->
+            <!-- ===============================================-->
+
+            <div class="d-flex flex-column-fluid bg-light p-40">
+                <div class="container">
+
+                    <div class="text-center">
+                        <span class="label label-{% goat_random_color %} label-inline font-weight-bolder mb-8">{{topic04Name}}</span>
+                    </div>
+
+                    <!-- topic_04_block starts here -->
+
+                    <blockquote class="blockquote text-center mb-10">
+                        <h2 class="mb-0 display-2 text-dark font-weight-boldest">{{topic04BlockTitle}}</h2>
+                        <div class="my-6 font-weight-bold font-size-h4 text-dark-50">{{topic04BlockDescription}}</div>
+                    </blockquote>
+
+                    <!-- topic_04_block ends here -->
+
+                    <div class="flex-row-fluid ml-lg-8">
+
+                        <div class="row mb-10">
+                            {% for item in data_list|slice:4 %}
+                              <a {% goat_href item.topic04Slug %} class="col-xl-6 text-center">
+                                    <div class="bgi-no-repeat bgi-size-cover rounded min-h-300px mb-6"
+                                        style="background-image: url({{'a-topics'|goat_img_url}})"></div>
+                                    <span class="text-dark font-weight-bolder font-size-h4">{{item.topic04Title}}</span>
+                                    <div class="text-muted font-weight-bold my-3">{{item.topic04Description}}</div>
+                                    <span class="label label-{% goat_random_color %} label-inline font-weight-bolder my-2">{{item.topic04Chip}}</span>
+                                </a>
+
+                                {% if forloop.counter == 2 %}
+                                  </div> 
+                                  <div class="row">
+                                {% endif %}
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===============================================-->
+            <!-- topic_04 ends here -->
+            <!-- ===============================================-->
+
+            <!-- ===============================================-->
+            <!-- topic_05 starts here -->
+            <!-- ===============================================-->
+
+            <div class="d-flex flex-column-fluid bg-white p-40">
+                <div class="container">
+
+                    <div class="text-center">
+                        <span class="label label-info label-inline font-weight-bolder mb-8">{{topic05Name}}</span>
+                    </div>
+
+                    <!-- topic_05_block starts here -->
+
+                    <blockquote class="blockquote text-center mb-10">
+                        <h2 class="mb-0 display-2 text-dark font-weight-boldest">{{topic05BlockTitle}}</h2>
+                        <div class="my-6 font-weight-bold font-size-h4 text-dark-50">{{topic05BlockDescription}}</div>
+                    </blockquote>
+
+                    <!-- topic_05_block ends here -->
+
+                    <div class="flex-row-fluid ml-lg-8">
+
+                        <div class="row mb-10">
+                            {% for item in data_list|slice:6 %}
+                                <a {% goat_href item.topic05Slug %} class="col-xl-4 text-center">
+                                    <div class="bgi-no-repeat bgi-size-cover rounded min-h-200px mb-6"
+                                        style="background-image: url({{'a-topics'|goat_img_url}})"></div>
+                                    <span class="text-dark font-weight-bolder font-size-h4">{{item.topic05Title}}</span>
+                                    <div class="text-muted font-weight-bold my-3">{{item.topic05Description}}</div>
+                                    <span class="label label-{% goat_random_color %} label-inline font-weight-bolder my-2">{{item.topic05Chip}}
+                                    </span>
+                                </a>
+                                {% if forloop.counter == 3 %}
+                                </div> <div class="row">
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===============================================-->
+            <!-- topic_05 ends here -->
+            <!-- ===============================================-->
+
+        </div>
+
+        <!-- ===============================================-->
+        <!-- product starts here -->
+        <!-- ===============================================-->
+
+        <a id="products">
+            <div class="d-flex flex-column-fluid bg-white p-40">
+        </a>
+
+        <div class="container">
+
+            <div class="text-center">
+                <span class="label label-warning label-inline font-weight-bolder mb-8">PRODUCTS</span>
+            </div>
+
+            <!-- product_block starts here -->
+
+            <blockquote class="blockquote text-center mb-10">
+                <h2 class="mb-0 display-2 text-dark font-weight-boldest">{{productBlockTitle}}</h2>
+                <div class="my-6 font-weight-bold font-size-h4 text-dark-50">{{productBlockDescription}}</div>
+            </blockquote>
+
+            <!-- product_block ends here -->
+
+            <!-- lead_form starts here -->
+
+            <div class="form-inline justify-content-center">
+                <a {% goat_href productButtonRedirect %} class="btn btn-primary font-weight-boldest btn-lg pull-left btn-shadow mr-2 px-12 py-5">{{productButtonCta}}</a>
+                                <a {% goat_href companyWebsite %} target="_blank" class="btn btn-bg-white btn-secondary font-weight-boldest btn-lg pull-right btn-shadow px-12 py-5">{{companyButtonCta}}</a>
+                                
+                                    {% comment %} 
+                <div class="mr-2">
+                    <input type="email"
+                        class="form-control form-control-solid font-weight-bolder h-auto pl-6 py-6 pr-40 rounded-lg font-size-h6"
+                        placeholder="Email Address">
+                </div>
+                <button type="submit"
+                    class="btn btn-primary font-weight-bolder font-size-h6 py-6 px-20">Continue</button> {% endcomment %}
+            </div>
+
+            <div class="container d-flex flex-column flex-md-row justify-content-md-center pt-4">
+                <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+                    <li class="breadcrumb-item font-weight-bolder text-muted">
+                        <div class="text-muted">{% goat_values_title %}</div>
+                    </li>
+                    <li class="breadcrumb-item font-weight-bolder text-muted">
+                        <div class="text-muted">{% goat_values_title %}</div>
+                    </li>
+                    <li class="breadcrumb-item font-weight-bolder text-muted">
+                        <div class="text-muted">{% goat_values_title %}</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- lead_form ends here -->
+
+            <div class="flex-row-fluid ml-lg-8 mt-40">
+
+                <div class="row mb-10">
+                    {% for item in data_list|slice:6 %}
+                        <a {% goat_href item.productSlug %} class="col-xl-4 text-center">
+                            <div class="bgi-no-repeat bgi-size-cover rounded min-h-200px mb-6"
+                                style="background-image: url({{'a-products'|goat_img_url}})"></div>
+                            <span class="text-dark font-weight-bolder font-size-h4">{{item.productTitle}}</span>
+                            <div class="text-muted font-weight-bold my-3">{{item.productDescription}}</div>
+                            <span class="label label-{% goat_random_color %} label-inline font-weight-bolder my-2">{% chip_text %}
+                                    </span>
+                        </a>
+                        {% if forloop.counter == 3 %}
+                        </div> <div class="row">
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===============================================-->
+    <!-- product ends here -->
+    <!-- ===============================================-->
+
+    <!-- ===============================================-->
+    <!-- faq starts here -->
+    <!-- ===============================================-->
+
+    <a id="customers">
+        <div class="d-flex flex-column-fluid bg-light p-40">
+    </a>
+
+    <div class="container">
+
+        <div class="text-center">
+            <span class="label label-success label-inline font-weight-bolder mb-8">CUSTOMERS</span>
+        </div>
+
+        <!-- faq_block starts here -->
+
+        <blockquote class="blockquote text-center mb-10">
+            <h2 class="mb-0 display-2 text-dark font-weight-boldest">{{faqBlockTitle}}</h2>
+            <div class="my-6 font-weight-bold font-size-h4 text-dark-50">{{faqBlockDescription}}</div>
+        </blockquote>
+
+        <!-- faq_block ends here -->
+
+        <!-- lead_form starts here -->
+
+        <div class="form-inline justify-content-center">
+            <a {% goat_href productButtonRedirect %} class="btn btn-primary font-weight-boldest btn-lg pull-left btn-shadow mr-2 px-12 py-5">{{productButtonCta}}</a>
+                                <a {% goat_href companyWebsite %} target="_blank" class="btn btn-bg-white btn-secondary font-weight-boldest btn-lg pull-right btn-shadow px-12 py-5">{{companyButtonCta}}</a>
+                                
+                                    {% comment %} 
+            <div class="mr-2">
+                <input type="email"
+                    class="form-control bg-white font-weight-bolder h-auto pl-6 py-6 pr-40 rounded-lg font-size-h6"
+                    placeholder="Email Address">
+            </div>
+            <button type="submit" class="btn btn-primary font-weight-bolder font-size-h6 py-6 px-20">Continue</button>
+             {% endcomment %}
+        </div>
+
+        <div class="container d-flex flex-column flex-md-row justify-content-md-center pt-4">
+            <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+                <li class="breadcrumb-item font-weight-bolder text-muted">
+                    <div class="text-muted">{% goat_values_title %}</div>
+                </li>
+                <li class="breadcrumb-item font-weight-bolder text-muted">
+                    <div class="text-muted">{% goat_values_title %}</div>
+                </li>
+                <li class="breadcrumb-item font-weight-bolder text-muted">
+                    <div class="text-muted">{% goat_values_title %}</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- lead_form ends here -->
+
+        <!--  faq_content starts here -->
+
+        <div class="flex-row-fluid mt-40">
+            <div class="card card-custom gutter-b">
+                <div class="card-body px-30 py-25">
+
+                    <div class="accordion accordion-light  accordion-toggle-arrow" id="faqContents">
+
+                    {% for item in data_list|slice:6  %}
+                        <div class="card">
+                            <div class="card-header" id="faqHeader{{forloop.counter}}">
+                                <div class="card-title font-size-h4" data-toggle="collapse" data-target="#faqContent{{forloop.counter}}">{{item.faqTitle}}</div>
+                            </div>
+                            <div id="faqContent{{forloop.counter}}" class="collapse {% if forloop.counter == 1 %} show {% endif %}" data-parent="#faqContents">
+                                <div class="card-body">
+                                    <div class="text-dark-50 font-weight-bold font-size-h5 pb-5">{{item.faqDescription}}</div>
+                                    <div class="d-flex align-items-center">
+                                        <span class="symbol symbol-circle symbol-50 mr-5">
+                                            <img src="{{'a-faqs'|goat_img_url}}" />
+                                            <i class="symbol-badge bg-warning"></i>
+                                        </span>
+                                        <div class="d-flex flex-column text-left">
+                                            <span class="text-dark font-weight-bolder font-size-lg">{{item.faqCustomerName}}</span>
+                                            <span class="text-muted font-weight-bold">{{item.faqCustomerTitle}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--  faq_content ends here -->
+
+    </div>
+    </div>
+
+    <!-- ===============================================-->
+    <!-- faq ends here -->
+    <!-- ===============================================-->
+
+    <!-- ===============================================-->
+    <!-- solution starts here -->
+    <!-- ===============================================-->
+
+    <a id="solutions">
+        <div class="d-flex flex-column-fluid bg-white p-40">
+    </a>
+
+    <div class="container">
+
+        <div class="text-center">
+            <span class="label label-light-primary label-inline font-weight-bolder mb-8">SOLUTIONS</span>
+        </div>
+
+        <!-- solution_block starts here -->
+
+        <blockquote class="blockquote text-center mb-10">
+
+            <h2 class="mb-0 display-2 text-dark font-weight-boldest">{{solutionBlockTitle}}</h2>
+            <div class="my-6 font-weight-bold font-size-h4 text-dark-50">{{solutionBlockDescription}}</div>
+            <a {% goat_href productButtonRedirect %} class="btn btn-primary font-weight-boldest btn-lg pull-left btn-shadow mr-2 px-12 py-5">{{productButtonCta}}</a>
+            <a {% goat_href companyWebsite %} target="_blank" class="btn btn-bg-white btn-secondary font-weight-boldest btn-lg pull-right btn-shadow px-12 py-5">{{companyButtonCta}}</a>
+
+            <div class="container d-flex flex-column flex-md-row justify-content-md-center pt-4">
+                <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+                    <li class="breadcrumb-item font-weight-bolder text-muted">
+                        <div class="text-muted">{% goat_values_title %}</div>
+                    </li>
+                    <li class="breadcrumb-item font-weight-bolder text-muted">
+                        <div class="text-muted">{% goat_values_title %}</div>
+                    </li>
+                    <li class="breadcrumb-item font-weight-bolder text-muted">
+                        <div class="text-muted">{% goat_values_title %}</div>
+                    </li>
+                </ul>
+            </div>
+
+        </blockquote>
+
+        <!-- solution_block ends here -->
+
+        <!-- solution_card starts here -->
+
+        <div class="flex-row-fluid ml-lg-8 mt-40">
+
+            <div class="row">
+            {% for item in data_list|slice:3  %}
+                <div class="col-xl-4">
+                    <div class="card card-custom gutter-b">
+                        <div class="card-body text-center px-15 py-20">
+                            <div class="symbol symbol-circle symbol-lg-60">
+                                <img src="{{'a-solutions'|goat_img_url}}" alt="image" />
+                            </div>
+                            <div class="mt-4">
+                                <span class="font-weight-bolder text-primary font-size-h4">{{item.solutionTitle}}</span>
+                            </div>
+                            <div class="text-muted font-weight-bold mb-3 mt-2">{{item.solutionDescription}}</div>
+                            <div class="">
+                                <span class="label label-light-{% goat_random_color %} label-inline font-weight-bolder">{% chip_text %}
+                                    </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+        <!-- solution_card ends here -->
+
+    </div>
+
+    </div>
+
+    <!-- ===============================================-->
+    <!-- solution ends here -->
+    <!-- ===============================================-->
+
+    <!-- ===============================================-->
+    <!-- company starts here -->
+    <!-- ===============================================-->
+
+    <a id="company">
+        <div class="d-flex flex-column-fluid bg-light p-40">
+    </a>
+    <div class="container">
+
+        <div class="text-center">
+            <span class="label label-warning label-inline font-weight-bolder mb-8">COMPANY</span>
+        </div>
+
+        <!-- company_block starts here -->
+
+        <blockquote class="blockquote text-center mb-10">
+            <h2 class="mb-0 display-2 text-dark font-weight-boldest">{{companyBlockTitle}}</h2>
+            <div class="my-6 font-weight-bold font-size-h4 text-dark-50">{{companyBlockDescription}}</div>
+        </blockquote>
+
+        <!-- company_block ends here -->
+
+        <!-- lead_form starts here -->
+
+        <div class="form-inline justify-content-center">
+            <a {% goat_href productButtonRedirect %} class="btn btn-primary font-weight-boldest btn-lg pull-left btn-shadow mr-2 px-12 py-5">{{productButtonCta}}</a>
+                                <a {% goat_href companyWebsite %} target="_blank" class="btn btn-bg-white btn-secondary font-weight-boldest btn-lg pull-right btn-shadow px-12 py-5">{{companyButtonCta}}</a>
+                                
+                                    {% comment %} 
+            <div class="mr-2">
+                <input type="email"
+                    class="form-control bg-white font-weight-bolder h-auto pl-6 py-6 pr-40 rounded-lg font-size-h6"
+                    placeholder="Email Address">
+            </div>
+            <button type="submit" class="btn btn-primary font-weight-bolder font-size-h6 py-6 px-20">Continue</button> {% endcomment %}
+        </div>
+
+        <div class="container d-flex flex-column flex-md-row justify-content-md-center pt-4">
+            <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+                <li class="breadcrumb-item font-weight-bolder text-muted">
+                    <div class="text-muted">{% goat_values_title %}</div>
+                </li>
+                <li class="breadcrumb-item font-weight-bolder text-muted">
+                    <div class="text-muted">{% goat_values_title %}</div>
+                </li>
+                <li class="breadcrumb-item font-weight-bolder text-muted">
+                    <div class="text-muted">{% goat_values_title %}</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- lead_form ends here -->
+
+    </div>
+    </div>
+
+    <!-- ===============================================-->
+    <!-- company ends here -->
+    <!-- ===============================================-->
+
+    <!-- ===============================================-->
+    <!-- interlink starts here -->
+    <!-- ===============================================-->
+
+    <div class="d-flex flex-column-fluid bg-light-primary p-40">
+
+        <div class="container">
+
+            <div class="text-center">
+                <span class="label label-primary label-inline font-weight-bolder mb-8">TESTIMONIALS</span>
+            </div>
+
+            <!-- interlink_block starts here -->
+
+            <blockquote class="blockquote text-center mb-10">
+                <h2 class="my-6 font-weight-boldest display-4 text-dark-75">{{interlinkBlockTitle}}</h2>
+                <div class="text-center mt-15">
+                    <div class="symbol symbol-circle symbol-lg-60">
+                        <img src="{{'a-faqs'|goat_img_url}}" alt="image" />
+                        <i class="symbol-badge bg-success"></i>
+                    </div>
+
+                    <div class="mt-4">
+                        <span class="font-weight-boldest text-primary font-size-h4">{{faqCustomerName}}</span>
+                    </div>
+
+                    <div class="text-dark-75 font-weight-bolder font-size-sm mt-2">
+                        {{faqCustomerTitle}}</div>
+
+                    <div class="mt-2">
+                        {% for _ in 0|goat_range:5  %}
+                            <img src="https://goatcdn.sfo3.digitaloceanspaces.com/static/assets/media/a-reviews/star.svg" alt="image" />
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+            </blockquote>
+
+            <!-- interlink_block ends here -->
+
+            <div class="flex-row-fluid ml-lg-8 mt-40">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+
+                            <ul class="nav nav-tabs nav-tabs-line nav-bolder justify-content-center">
+                                {% for n in 1|goat_shuffled_range:7  %}
+                                <li class="nav-item">
+                                    <a class="nav-link {% if forloop.counter == 2 %}active{% endif %}" data-toggle="tab" href="#interlink_0{{forloop.counter}}">{% nth_interlink_title n %}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+
+                            <div class="tab-content mt-5" id="myTabContent">
+                                {% for n in 1|goat_range:7 %}
+                                <div class="tab-pane fade {% if n == 2 %} show active {% endif %}" id="interlink_0{{n}}" role="tabpanel" aria-labelledby="interlink_0{{n}}">
+                                    <div class="row mt-4">
+                                    {% for item in interlink_values|interlinks_chunk %}
+                                        <a href="{{item.id}}" class="col-xl-2">
+                                            <div class="naked-card">
+                                                <div class="text-dark font-weight-bold font-size-md"> {{item.row.0}}</div>
+                                                <span class="text-muted text-hover-primary font-weight-bold font-size-md"> {{item.row.1}}</span>
+                                            </div>
+                                        </a>
+                                        {% if forloop.counter == 5 %} </div><div class="row mt-4"> {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ===============================================-->
+    <!-- interlink ends here -->
+    <!-- ===============================================-->
+
+    <!-- ===============================================-->
+    <!-- footer starts here -->
+    <!-- ===============================================-->
+
+    <div class="login-footer pb-40 bg-light-primary">
+        <div class="mb-6 text-center">
+            <a href="/"> <img src="{{pageIconFooter}}" height="30" alt="image" />
+            </a>
+        </div>
+
+        <div class="container d-flex flex-column flex-md-row justify-content-md-center">
+            <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold font-size-sm">
+                <li class="breadcrumb-item font-weight-bolder text-muted">
+                    <a href="/" class="text-muted">{{companyName}}</a>
+                </li>
+                {% for item in footer_breadcrumbs %}
+                <li class="breadcrumb-item font-weight-bolder text-muted">
+                    <a href="{{item.url}}" class="text-muted">{{item.breadcrumb}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="container d-flex flex-column flex-md-row justify-content-md-center">
+            <div class="font-size-h6 font-weight-bolder order-2 order-md-1">
+                <span class="text-muted font-weight-bold mr-2">2021 ©</span>
+                <span class="text-muted">{{companyName}} :: {{companyAddress}}</span>
+            </div>
+        </div>
+
+        <div class="text-center">
+
+            <div class="text-center">
+                <span class="label label-warning label-inline font-weight-bolder mt-8">{{companyName}}</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ===============================================-->
+    <!-- footer ends here -->
+    <!-- ===============================================-->
+
+    </div>
+    </div>
+    </div>
+
+    <!-- ===============================================-->
+    <!-- scrolltop starts here -->
+    <!-- ===============================================-->
+
+    <div id="kt_scrolltop" class="scrolltop">
+        <span class="svg-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                height="24px" viewBox="0 0 24 24" version="1.1">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <polygon points="0 0 24 0 24 24 0 24" />
+                    <rect fill="#000000" opacity="0.3" x="11" y="10" width="2" height="10" rx="1" />
+                    <path
+                        d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z"
+                        fill="#000000" fill-rule="nonzero" />
+                </g>
+            </svg>
+        </span>
+    </div>
+
+    <!-- ===============================================-->
+    <!-- scrolltop ends here -->
+    <!-- ===============================================-->
+
+    <!-- ===============================================-->
+    <!-- floater starts here -->
+    <!-- ===============================================-->
+
+    <ul class="sticky-toolbar nav flex-column pl-2 pr-2 pt-3 pb-3 mt-4">
+
+        <li class="nav-item mb-2" id="" data-toggle="tooltip" title="About" data-placement="right">
+            <a class="btn btn-sm btn-icon btn-bg-white btn-icon-warning btn-hover-warning" href="https:site.com"
+                target="_blank">
+                <span class="svg-icon svg-icon-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                        height="24px" viewBox="0 0 24 24" version="1.1">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect x="0" y="0" width="24" height="24" />
+                            <rect fill="#000000" x="4" y="4" width="7" height="7" rx="1.5" />
+                            <path
+                                d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
+                                fill="#000000" opacity="0.3" />
+                        </g>
+                    </svg>
+                </span>
+            </a>
+        </li>
+
+        <!-- language_dropdown starts here
+
+        <li class="nav-item mb-2" data-toggle="tooltip" data-offset="0px 20px" title="International, English"
+            data-placement="left">
+
+            <div class="dropdown">
+                <span data-toggle="dropdown">
+                    <a class="btn btn-sm btn-icon btn-bg-white btn-icon-success btn-hover-success dropdown" href="">
+                        <span class="svg-icon svg-icon-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24" />
+                                    <path
+                                        d="M13,18.9450712 L13,20 L14,20 C15.1045695,20 16,20.8954305 16,22 L8,22 C8,20.8954305 8.8954305,20 10,20 L11,20 L11,18.9448245 C9.02872877,18.7261967 7.20827378,17.866394 5.79372555,16.5182701 L4.73856106,17.6741866 C4.36621808,18.0820826 3.73370941,18.110904 3.32581341,17.7385611 C2.9179174,17.3662181 2.88909597,16.7337094 3.26143894,16.3258134 L5.04940685,14.367122 C5.46150313,13.9156769 6.17860937,13.9363085 6.56406875,14.4106998 C7.88623094,16.037907 9.86320756,17 12,17 C15.8659932,17 19,13.8659932 19,10 C19,7.73468744 17.9175842,5.65198725 16.1214335,4.34123851 C15.6753081,4.01567657 15.5775721,3.39010038 15.903134,2.94397499 C16.228696,2.49784959 16.8542722,2.4001136 17.3003976,2.72567554 C19.6071362,4.40902808 21,7.08906798 21,10 C21,14.6325537 17.4999505,18.4476269 13,18.9450712 Z"
+                                        fill="#000000" fill-rule="nonzero" />
+                                    <circle fill="#000000" opacity="0.3" cx="12" cy="10" r="6" />
+                                </g>
+                            </svg>
+                        </span>
+                    </a></span>
+
+                <div class="dropdown-menu dropdown-menu-left dropdown-menu-md">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="mb-2">
+                                    <input class="form-control form-control-solid text-center font-weight-bold"
+                                        type="search" placeholder="Search Language" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="mb-2">
+                                    <input class="form-control form-control-solid text-center font-weight-bold"
+                                        type="search" placeholder="Search Country" />
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-block btn-primary font-weight-bolder">Done</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </li>
+        -->
+
+        <!-- language_dropdown ends here -->
+
+        <li class="nav-item mb-2" data-toggle="tooltip" title="Phone" data-placement="left">
+            <a class="btn btn-sm btn-icon btn-bg-white btn-icon-primary btn-hover-primary" href="tel:555 666 7777">
+                <span class="svg-icon svg-icon-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                        height="24px" viewBox="0 0 24 24" version="1.1">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect x="0" y="0" width="24" height="24" />
+                            <path
+                                d="M7.13888889,4 L7.13888889,19 L16.8611111,19 L16.8611111,4 L7.13888889,4 Z M7.83333333,1 L16.1666667,1 C17.5729473,1 18.25,1.98121694 18.25,3.5 L18.25,20.5 C18.25,22.0187831 17.5729473,23 16.1666667,23 L7.83333333,23 C6.42705272,23 5.75,22.0187831 5.75,20.5 L5.75,3.5 C5.75,1.98121694 6.42705272,1 7.83333333,1 Z"
+                                fill="#000000" fill-rule="nonzero" />
+                            <polygon fill="#000000" opacity="0.3" points="7 4 7 19 17 19 17 4" />
+                            <circle fill="#000000" cx="12" cy="21" r="1" />
+                        </g>
+                    </svg>
+                </span>
+            </a>
+        </li>
+
+        <li class="nav-item" id="" data-toggle="tooltip" title="Email" data-placement="left">
+            <a class="btn btn-sm btn-icon btn-bg-white btn-icon-danger btn-hover-danger" href="mailto:mail@mail.com">
+                <span class="svg-icon svg-icon-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                        height="24px" viewBox="0 0 24 24" version="1.1">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect x="0" y="0" width="24" height="24" />
+                            <path opacity="0.3" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M14.4862 18L12.7975 21.0566C12.5304 21.54 11.922 21.7153 11.4386 21.4483C11.2977 21.3704 11.1777 21.2597 11.0887 21.1255L9.01653 18H5C3.34315 18 2 16.6569 2 15V6C2 4.34315 3.34315 3 5 3H19C20.6569 3 22 4.34315 22 6V15C22 16.6569 20.6569 18 19 18H14.4862Z"
+                                fill="black" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M6 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H6C5.44772 9 5 8.55228 5 8C5 7.44772 5.44772 7 6 7ZM6 11H11C11.5523 11 12 11.4477 12 12C12 12.5523 11.5523 13 11 13H6C5.44772 13 5 12.5523 5 12C5 11.4477 5.44772 11 6 11Z"
+                                fill="black" />
+                        </g>
+                    </svg>
+                </span>
+            </a>
+        </li>
+
+    </ul>
+
+    <!-- ===============================================-->
+    <!-- floater ends here -->
+    <!-- ===============================================-->
+
+    <!-- ===============================================-->
+    <!-- script starts here -->
+    <!-- ===============================================-->
+
+    <script>var HOST_URL = "https://preview.keenthemes.com/keen/theme/tools/preview";</script>
+    <script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1200 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#0BB783", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#F3F6F9", "dark": "#212121" }, "light": { "white": "#ffffff", "primary": "#D7F9EF", "secondary": "#ECF0F3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#212121", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#ECF0F3", "gray-300": "#E5EAEE", "gray-400": "#D6D6E0", "gray-500": "#B5B5C3", "gray-600": "#80808F", "gray-700": "#464E5F", "gray-800": "#1B283F", "gray-900": "#212121" } }, "font-family": "Poppins" };</script>
+    <script src="https://goatcdn.sfo3.digitaloceanspaces.com/static/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="https://goatcdn.sfo3.digitaloceanspaces.com/static/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+    <script src="https://goatcdn.sfo3.digitaloceanspaces.com/static/assets/js/scripts.bundle.js"></script>
+
+    <!-- ===============================================-->
+    <!-- script ends here -->
+    <!-- ===============================================-->
+
+</body>
+
+</html>

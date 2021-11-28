@@ -1,0 +1,50 @@
+sudo nano /etc/systemd/system/frontend.socket
+
+-------------------------------------------
+
+[Unit]
+Description=gunicorn frontend socket
+
+[Socket]
+ListenStream=/home/backend-developer-needed-31830366/frontend/frontend.sock
+
+[Install]
+WantedBy=sockets.target
+
+-------------------------------------------
+
+sudo nano /etc/systemd/system/frontend.service
+
+-------------------------------------------
+
+[Unit]
+Description=gunicorn daemon
+Requires=frontend.socket
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/home/backend-developer-needed-31830366/frontend
+ExecStart=/home/backend-developer-needed-31830366/.venv/bin/gunicorn --workers 5 --bind unix://home/backend-developer-needed-31830366/frontend/frontend.sock frontend.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
+-------------------------------------------
+
+systemctl start frontend.socket
+systemctl start frontend.service
+
+systemctl enable frontend.socket
+systemctl enable frontend.socket
+
+sudo nano /etc/nginx/sites-available/frontend
+
+-----------------------------------------------
+ location /frontend/ {
+        include proxy_params;
+        proxy_pass http://unix://home/backend-developer-needed-31830366/frontend/frontend.sock;
+    }
+
+-----------------------------------------------

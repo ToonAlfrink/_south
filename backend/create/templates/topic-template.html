@@ -1,0 +1,53 @@
+<div class="row mb-4">
+  <div class="col-md-6-goat">
+    <input class="form-control form-control-solid font-weight-bold h-auto p-6 rounded-lg font-size-h6" type="text" placeholder="{{topic_variable.title}} Name" title="{{topic_variable.title}} Name"  name="{{topic_variable.name}}Name" id="{{topic_variable.name}}Name" />
+  </div>
+
+  <div class="col-md-6-goat">
+    <input class="form-control form-control-solid font-weight-bold h-auto p-6 rounded-lg font-size-h6" type="text" placeholder="{{topic_variable.title}} Title" title="{{topic_variable.title}} Title"  name="{{topic_variable.name}}Title" id="{{topic_variable.name}}Title" />
+  </div>
+</div>
+<div class="row mb-4">
+<div class="col-md-12-goat">
+    <input class="form-control form-control-solid font-weight-bold h-auto p-6 rounded-lg font-size-h6" type="text" placeholder="{{topic_variable.title}} Slug" title="{{topic_variable.title}} Slug"  name="{{topic_variable.name}}Slug" id="{{topic_variable.name}}Slug" />
+  </div>
+</div>
+
+<div class="row mb-4">
+  <div class="col-md-6-goat">
+    <input class="form-control form-control-solid font-weight-bold h-auto p-6 rounded-lg font-size-h6" type="text" placeholder="{{topic_variable.title}} Chip" title="{{topic_variable.title}} Chip"  name="{{topic_variable.name}}Chip" id="{{topic_variable.name}}Chip" />
+  </div>
+  <div class="col-md-6-goat">
+    <input class="form-control form-control-solid font-weight-bold h-auto p-6 rounded-lg font-size-h6" type="text" placeholder="{{topic_variable.title}} Breadcrumb" title="{{topic_variable.title}} Breadcrumb"  name="{{topic_variable.name}}Breadcrumb" id="{{topic_variable.name}}Breadcrumb" />
+  </div>
+</div>
+
+<div class="row mb-4">
+  <div class="col-md-12-goat">
+    <textarea class="form-control form-control-solid font-weight-bold h-auto p-6 rounded-lg font-size-h6" placeholder="{{topic_variable.title}} Description" title="{{topic_variable.title}} Description"  maxlength="250" rows="3" name="{{topic_variable.name}}Description" id="{{topic_variable.name}}Description"></textarea>
+  </div>
+</div>
+
+{% if topic_variable.name == 'product' %}
+<div class="row mb-4">
+  <div class="col-md-6-goat">
+    <input class="form-control form-control-solid font-weight-bold h-auto p-6 rounded-lg font-size-h6" type="text" placeholder="{{topic_variable.title}} Button CTA" title="{{topic_variable.title}} Button CTA"  name="{{topic_variable.name}}ButtonCta" id="{{topic_variable.name}}ButtonCta" />
+  </div>
+
+  <div class="col-md-6-goat">
+    <input class="form-control form-control-solid font-weight-bold h-auto p-6 rounded-lg font-size-h6" type="text" placeholder="{{topic_variable.title}} Button Redirect" title="{{topic_variable.title}} Button Redirect"  name="{{topic_variable.name}}ButtonRedirect" id="{{topic_variable.name}}ButtonRedirect" />
+  </div>
+</div>
+{% endif %}
+
+<div class="row mb-4">
+  <div class="col-md-12-goat">
+    <input class="form-control form-control-solid font-weight-bold h-auto p-6 rounded-lg font-size-h6" type="text" placeholder="{{topic_variable.title}} Block Title" title="{{topic_variable.title}} Block Title"  name="{{topic_variable.name}}BlockTitle" id="{{topic_variable.name}}BlockTitle" />
+  </div>
+</div>
+
+<div class="row mb-0">
+  <div class="col-md-12-goat">
+    <textarea class="form-control form-control-solid font-weight-bold h-auto p-6 rounded-lg font-size-h6" placeholder="{{topic_variable.title}} Block Description" title="{{topic_variable.title}} Block Description"  maxlength="250" rows="3" name="{{topic_variable.name}}BlockDescription" id="{{topic_variable.name}}BlockDescription"></textarea>
+  </div>
+</div>

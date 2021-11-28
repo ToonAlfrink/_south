@@ -1,0 +1,91 @@
+{% load backend_custom_filters %}
+{% verbatim  %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Urls</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
+<link rel="stylesheet" href="https://unpkg.com/js-pagination@0.1.2/dist/styles.css" />
+  </head>
+  <style>
+  html, body {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+   td, th, caption {
+       text-align: left !important;
+   }
+
+   table {
+    margin: 1rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 100%;
+    height: calc(100% - 64px);
+  }
+
+  .goat_pagination-wrapper {
+      padding: 0.5rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 0;
+  }
+
+  select {
+    margin: 0 !important;
+  }
+
+  </style>
+  <body>
+  
+  {% endverbatim  %}
+  <div class="goat_pagination-wrapper"> <select  id="template-select">
+  <option value="" {% if item == 'ALL' or not item %}selected{% endif %}>ALL</option>
+   {% for item in template_names %}
+   <option value="{{item}}" {% if item == templateName %}selected{% endif %}>{{item}}</option>
+   {% endfor %}
+  </select> <span>{{pagination.skip}}-{{pagination.skip|add:pagination.limit}} of {{pagination.total}}</span> <div id="pagination_view"></div></div>
+  
+    <table>
+    <caption>
+        Urls Data
+      </caption>
+    <thead><tr> 
+    <th>Url</th>
+    <th>Template Name</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Row</th>
+     </tr></thead>
+      <tbody>
+        {% for item in urls %}
+        <tr>
+          <td><a href="/{{lang}}/{{item.id}}/?skip_lang_check">{{item.id}}</a></td>
+          <td>{{item.templateName}}</td>
+          <td>{{item.title}}</td>
+          <td>{{item.description}}</td>
+          {% if item.row %}
+            <td>{{item.row.row}}</td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {{ pagination|json_script:"pagination_data" }} 
+    {% verbatim  %}
+    <script src="https://goatcdn.sfo3.digitaloceanspaces.com/static/assets/js/urls.min.js"> </script>
+  </body>
+</html>
+
+{% endverbatim  %}

@@ -1,0 +1,51 @@
+sudo nano /etc/systemd/system/gunicorn.service
+
+pkill gunicorn
+sudo systemctl daemon-reload
+systemctl start gunicorn
+systemctl enable gunicorn
+systemctl status gunicorn
+
+sudo systemctl restart gunicorn
+systemctl status gunicorn
+
+journalctl -u frontend.service -n 50 -f
+journalctl -u backend.service -n 50 -f
+sudo journalctl --rotate
+sudo journalctl --vacuum-time=1m
+
+cat /proc/meminfo
+
+sudo nano /etc/nginx/sites-available/backend-developer-needed-31830366
+sudo ln -s /etc/nginx/sites-available/backend-developer-needed-31830366 /etc/nginx/sites-enabled
+
+sudo nginx -t
+sudo systemctl restart nginx
+
+python3 -m venv /home/backend-developer-needed-31830366/.venv
+source .venv/bin/activate
+
+https://caterinadmitrieva.medium.com/serving-multiple-django-apps-on-second-level-domains-with-gunicorn-and-nginx-a4a14804174c
+https://phoenixnap.com/kb/linux-commands-check-memory-usage
+
+cd .. && mongod --dbpath=./mongo_db
+cd backend && python manage.py runserver 0.0.0.0:8181
+cd frontend && python manage.py runserver 0.0.0.0:8080
+cd memcached && memcached.exe
+source .venv\Scripts\activate
+
+
+systemctl stop backend.socket
+systemctl stop backend.service
+systemctl stop frontend.socket
+systemctl stop frontend.service
+
+systemctl start backend.socket
+systemctl enable backend.socket
+systemctl start backend.service
+systemctl enable backend.service
+
+systemctl start frontend.socket
+systemctl enable frontend.socket
+systemctl start frontend.service
+systemctl enable frontend.service

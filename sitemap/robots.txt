@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /dashboard/*
+Disallow: /create/*
+Disallow: /admin/
+DISALLOW: /404
+DISALLOW: /static/
+
+
+Sitemap: https://southscale.com/siteindex/sitemapindex-002.xml
+Sitemap: https://southscale.com/siteindex/sitemapindex-001.xml

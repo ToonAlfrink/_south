@@ -1,0 +1,77 @@
+sudo nano /etc/systemd/system/backend.socket
+
+-------------------------------------------
+
+[Unit]
+Description=backend.service backend socket
+
+[Socket]
+ListenStream=/home/backend-developer-needed-31830366/backend/backend.sock
+
+[Install]
+WantedBy=sockets.target
+
+-------------------------------------------
+
+sudo nano /etc/systemd/system/backend.service
+
+-------------------------------------------
+
+[Unit]
+Description=backend.service daemon
+Requires=backend.socket
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/home/backend-developer-needed-31830366/backend
+ExecStart=/home/backend-developer-needed-31830366/.venv/bin/backend.service --workers 1 --bind unix://home/backend-developer-needed-31830366/backend/backend.sock backend.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
+-------------------------------------------
+
+systemctl start backend.socket
+systemctl start backend.service
+
+systemctl enable backend.socket
+systemctl enable backend.socket
+
+sudo nano /etc/nginx/sites-available/backend-developer-needed-31830366
+
+-----------------------------------------------
+ location /backend/ {
+        include proxy_params;
+        proxy_pass http://unix://home/backend-developer-needed-31830366/backend/backend.sock;
+    }
+P
+-----------------------------------------------
+
+
+sudo nano /etc/systemd/system/backend.service.service
+
+pkill backend.service
+sudo systemctl daemon-reload
+systemctl stop backend.service
+systemctl start backend.service
+systemctl enable backend.service
+systemctl status backend.service
+
+sudo systemctl restart backend.service
+systemctl status backend.service
+
+journalctl -u backend.service -n 50 -f
+
+
+sudo nano /etc/nginx/sites-available/backend-developer-needed-31830366
+sudo ln -s /etc/nginx/sites-available/backend-developer-needed-31830366 /etc/nginx/sites-enabled
+
+sudo nginx -t
+sudo systemctl restart nginx
+
+python3 -m venv /home/backend-developer-needed-31830366/.venv
+source .venv/bin/activate
+
+https://caterinadmitrieva.medium.com/serving-multiple-django-apps-on-second-level-domains-with-backend.service-and-nginx-a4a14804174c

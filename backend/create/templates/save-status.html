@@ -1,0 +1,139 @@
+{% verbatim %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Save Status</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
+    <meta http-equiv="refresh" content="5" />
+  </head>
+  <style>
+    html,
+    body {
+      width: 100;
+      height: 100vh;
+      position: relative;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 1rem;
+    }
+
+    button,
+    form {
+      padding: 0;
+      margin: 0;
+    }
+
+    table {
+      max-width: 100%;
+      overflow: auto;
+    }
+
+    code {
+      display: block;
+    }
+
+    button {
+      padding: 0.25rem 0.5rem;
+    }
+
+    form {
+      display: block;
+      max-width: max-content;
+    }
+
+    caption {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+      align-items: center;
+    }
+
+    .nothing-to-report {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nothing-to-report > h1 {
+      border: 1px solid lightgray;
+      padding: 2rem 4rem;
+      border-radius: 1rem;
+      box-shadow: 10px 10px 53px -21px rgb(0 0 0 / 75%);
+    }
+    .uploading,
+    .parsing {
+      color: green;
+      font-weight: bold;
+    }
+    .uploaded,
+    .parsed {
+      color: blue;
+      font-weight: bold;
+    }
+    .waiting {
+      color: gray;
+      font-weight: bold;
+    }
+    .failed {
+      color: red;
+      font-weight: bold;
+    }
+    .skipped {
+      color: gray;
+      text-decoration: line-through;
+      font-weight: bold;
+    }
+
+    .btn-container {
+      display: flex;
+      padding: 0.5rem 1rem;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+    .text-right {
+      text-align: right !important;
+    }
+    .d-block {
+      display: block;
+    }
+
+    .main-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <body>
+    {% endverbatim %} {% if saving %}
+    <div class="main-container">
+      <h1>Saving Template</h1>
+      {% for key, value in file.items %}
+        <p style="text-align: center">{{key}} | {{value.filename}}</p>
+      {% endfor %}
+      <p style="text-align: center">{{progress}} <progress id="file" max="{{total}}" value="{{progress}}"></progress> {{total}}</p>
+    </div>
+    {% else %}
+    <div class="main-container">
+      <h1>DONE</h1>
+    </div>
+    {% endif %}
+  </body>
+</html>

@@ -1,0 +1,184 @@
+{% verbatim  %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
+    <meta http-equiv="refresh" content="5" />
+  </head>
+  <style>
+    html,
+    body {
+      width: 100;
+      height: 100vh;
+      position: relative;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 1rem;
+    }
+
+    button,
+    form {
+      padding: 0;
+      margin: 0;
+    }
+
+    table {
+      max-width: 100%;
+      overflow: auto;
+    }
+
+    code {
+      display: block;
+    }
+
+    button {
+      padding: 0.25rem 0.5rem;
+    }
+
+    form {
+      display: block;
+      max-width: max-content;
+    }
+
+    caption {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+      align-items: center;
+    }
+
+    .nothing-to-report {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nothing-to-report > h1 {
+      border: 1px solid lightgray;
+      padding: 2rem 4rem;
+      border-radius: 1rem;
+      box-shadow: 10px 10px 53px -21px rgb(0 0 0 / 75%);
+    }
+    .uploading,
+    .parsing {
+      color: green;
+      font-weight: bold;
+    }
+    .uploaded,
+    .parsed {
+      color: blue;
+      font-weight: bold;
+    }
+    .waiting {
+      color: gray;
+      font-weight: bold;
+    }
+    .failed {
+      color: red;
+      font-weight: bold;
+    }
+    .skipped {
+      color: gray;
+      text-decoration: line-through;
+      font-weight: bold;
+    }
+
+    .btn-container {
+      display: flex;
+      padding: 0.5rem 1rem;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+    .text-right {
+      text-align: right !important;
+    }
+    .d-block {
+      display: block;
+    }
+  </style>
+  <body>
+  {% endverbatim  %}
+    {% if parse_status.allow_upload %}
+    <form method="post" action="/create/upload-csv/">
+      {% csrf_token %} {% endif %} {% if data %}
+      <table id="status_table">
+        <caption>
+          Files Status
+          <small class="d-block">{{updated_on}}</small>
+        </caption>
+        <thead>
+          <tr>
+            <th class="text-center">-</th>
+            <th>name</th>
+            <th>status</th>
+            <th>upload status</th>
+            <th>file size</th>
+            <th>row count</th>
+            <th>error</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key, value in data.items %}
+          <tr>
+            <td  class="text-center">
+              {% if value.allow_upload %}
+              <input type="checkbox" id="{{key}}" name="{{key}}" checked />
+              {% else %} - {% endif %}
+            </td>
+            <td>{{key}}</td>
+            <td class="{{value.status}}">{{value.status}}</td>
+            <td class="{{value.upload_status}}">{{value.upload_status}}</td>
+            <td>{% if value.size %}{{value.size|filesizeformat}}{% else %}--{% endif %}</td>
+            <td>{% if value.row_count %} {{value.row_count}} {% else %}--{% endif %}</td>
+            <td>{{value.error}}</td>
+          </tr>
+          {% endfor %}
+        {% if parse_status.allow_upload %} 
+          <tr><td colspan="7" class="text-right">
+            <button type="submit" name="discard">Discard Changes</button> 
+            <button type="submit" name="upload" >Save Selected Files</button>
+          </td></tr>
+        {% endif %}     
+        </tbody>
+      </table>
+
+      {% if parse_status.allow_upload %} </form>{% endif %} 
+      
+      {% endif %} 
+      
+    {% if error %}
+      <code id="error_section">
+        <pre>{{error}}</pre>
+      </code>
+    {% endif %} 
+    
+    {% if not data and not error %}
+    <div class="nothing-to-report">
+      <h1>Nothing To Report</h1>
+      <a href="/create/"> Go To Create/Update Page </a>
+    </div>
+    {% endif %}
+
+    {% if variables_init_state %}
+    <code>
+    <h1>Initialized Database</h1>
+    <pre>{{variables_init_state}}</pre></code>
+    {% endif %}
+  </body>
+</html>

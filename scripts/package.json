@@ -1,0 +1,18 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build:urls": "esbuild urls.js --bundle --minify --sourcemap --target=chrome58,firefox57,safari11,edge16 --outfile=dist/urls.min.js",
+    "build:create": "esbuild create.js --bundle --minify --sourcemap --target=chrome58,firefox57,safari11,edge16 --outfile=dist/create.min.js",
+    "build:create:w": "yarn build:create --watch"
+  },
+  "dependencies": {
+    "countries-and-timezones": "^3.3.0",
+    "esbuild": "^0.13.9",
+    "js-pagination": "^0.1.2",
+    "jstz": "^2.1.1",
+    "tributejs": "^5.1.3"
+  }
+}

@@ -1,0 +1,10 @@
+{% load main_templatetags %}
+<!DOCTYPE html>
+<html>
+  <body>
+    {% for o in 1|goat_range:10 %}
+    <h1>{{o}}</h1>
+    {% endfor %}
+    <p>My first paragraph.</p>
+  </body>
+</html>
